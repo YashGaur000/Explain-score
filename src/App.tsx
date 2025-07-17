@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Layout from './components/Layout/Layout';
@@ -8,8 +8,14 @@ import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import { logEmailConfig } from './utils/emailConfig';
 
 function App() {
+  useEffect(() => {
+    // Log email configuration status on app startup
+    logEmailConfig();
+  }, []);
+
   return (
     <ThemeProvider>
       <Router>

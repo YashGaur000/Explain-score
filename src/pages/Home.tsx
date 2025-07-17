@@ -1,52 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Zap, FileCheck, CheckCircle, Star, Play } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { ArrowRight, Star, Play } from 'lucide-react';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
 import GradientText from '../components/ui/GradientText';
+import Button from '../components/common/Button';
+import { siteConfig } from '../config/site';
+import { getIcon } from '../utils/icons';
 
 export default function Home() {
-  const features = [
-    {
-      icon: Shield,
-      title: 'Regulatory Compliance',
-      description: 'Built-in GDPR, CCPA, and banking regulation compliance with automated audit trails and documentation.'
-    },
-    {
-      icon: Zap,
-      title: 'Real-time Explanations',
-      description: 'Generate instant, human-readable explanations for any ML decision without accessing your models.'
-    },
-    {
-      icon: FileCheck,
-      title: 'Audit-Ready Reports',
-      description: 'Complete documentation and audit trails for every decision, ready for regulatory review.'
-    }
-  ];
-
-  const stats = [
-    { value: '99.9%', label: 'Uptime SLA' },
-    { value: '<50ms', label: 'Response Time' },
-    { value: '500M+', label: 'Decisions Explained' },
-    { value: '50+', label: 'Enterprise Clients' }
-  ];
-
-  const testimonials = [
-    {
-      quote: "ExplainScore transformed how we handle regulatory compliance. What used to take weeks now happens in real-time.",
-      author: "Sarah Chen",
-      role: "Chief Risk Officer",
-      company: "Global Financial Corp",
-      avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop"
-    },
-    {
-      quote: "The API integration was seamless. We had explainable lending decisions running in production within days.",
-      author: "Michael Rodriguez",
-      role: "Head of ML Engineering",
-      company: "FinTech Solutions",
-      avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop"
-    }
-  ];
-
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-white dark:bg-dark-900 transition-colors duration-300">
       {/* Hero Section */}
@@ -60,16 +23,18 @@ export default function Home() {
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto animate-slide-up">
               Enable compliant, auditable ML lending decisions with our Explainability-as-a-Service platform. 
-              No model building required—just transparent AI explanations.
+              No model building required just transparent AI explanations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <Link
-                to="/contact"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center transform hover:scale-105"
+              <Button
+                href="/contact"
+                variant="primary"
+                size="lg"
+                className="flex items-center"
               >
                 Start free trial
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              </Button>
               <button className="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors text-lg font-medium group">
                 <div className="w-12 h-12 bg-gray-100 dark:bg-dark-800 rounded-full flex items-center justify-center mr-3 group-hover:bg-gray-200 dark:group-hover:bg-dark-700 transition-all duration-300 group-hover:scale-110">
                   <Play className="h-5 w-5 ml-0.5" />
@@ -79,16 +44,23 @@ export default function Home() {
             </div>
             
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                    {stat.value}
+            <div
+                className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto animate-slide-up"
+                style={{ animationDelay: '0.4s' }}
+              >
+                {siteConfig.stats.map((stat, index) => (
+                  <div
+                    key={index}
+                    className="flex-1 min-w-[120px] max-w-[180px] text-center group"
+                    style={{ flexBasis: '20%' }}
+                  >
+                    <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      {stat.value}
+                    </div>
+                    <div className="text-gray-600 dark:text-gray-400 text-sm">{stat.label}</div>
                   </div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
           </div>
         </div>
       </section>
@@ -107,23 +79,26 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-12">
-            {features.map((feature, index) => (
-              <div key={index} className="text-center group animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="w-16 h-16 bg-white dark:bg-dark-700 rounded-2xl shadow-sm flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg dark:group-hover:shadow-dark-900/50 transition-all duration-300 group-hover:scale-110">
-                  <feature.icon className="h-8 w-8 text-blue-600 dark:text-blue-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300" />
+            {siteConfig.features.map((feature, index) => {
+              const IconComponent = getIcon(feature.icon);
+              return (
+                <div key={index} className="text-center group animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="w-16 h-16 bg-white dark:bg-dark-700 rounded-2xl shadow-sm flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg dark:group-hover:shadow-dark-900/50 transition-all duration-300 group-hover:scale-110">
+                    <IconComponent className="h-8 w-8 text-blue-600 dark:text-blue-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{feature.description}</p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Social Proof */}
-      <section className="py-24 bg-white dark:bg-dark-900 transition-colors duration-300">
+      {/* <section className="py-24 bg-white dark:bg-dark-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
@@ -135,7 +110,7 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => (
+            {siteConfig.testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white dark:bg-dark-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-dark-700 hover:shadow-lg dark:hover:shadow-dark-900/50 transition-all duration-300 group animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="flex items-center mb-6">
                   {[...Array(5)].map((_, i) => (
@@ -160,7 +135,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 dark:from-blue-700 dark:via-purple-700 dark:to-blue-900 relative overflow-hidden">
@@ -174,18 +149,22 @@ export default function Home() {
             into their ML decisions. Start your free trial today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            <Button
+              href="/contact"
+              variant="secondary"
+              size="lg"
+              className="bg-white text-blue-600 hover:bg-gray-50"
             >
               Start free trial
-            </Link>
-            <Link
-              to="/pricing"
-              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
+            </Button>
+            <Button
+              href="/pricing"
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white hover:text-blue-600"
             >
               View pricing
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
