@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, Calendar } from 'lucide-react';
 import Input from '../components/common/Input';
 import Textarea from '../components/common/Textarea';
@@ -7,7 +7,16 @@ import { siteConfig } from '../config/site';
 import { sendContactEmail, sendDemoEmail } from '../utils/email';
 import { ContactFormData, DemoFormData } from '../types';
 
+// useEffect(() => {
+//   window.scrollTo(0, 0);
+// }, []);
+
 export default function Contact() {
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
   const [contactForm, setContactForm] = useState<ContactFormData>({
     name: '',
     email: '',

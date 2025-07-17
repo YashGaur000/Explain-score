@@ -114,45 +114,54 @@ export default function About() {
 
       {/* Founding Story */}
       <section className="py-24">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Story
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Born from firsthand experience with the challenges of AI transparency in financial services
-            </p>
-          </div>
-          
-          <div className="bg-gray-50 rounded-3xl p-12">
-            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
-              <p>
-                ExplainScore was founded in 2023 by Dr. Sarah Martinez and Michael Zhang, who experienced the AI transparency 
-                challenge firsthand while working at major financial institutions. Sarah, as Head of AI Ethics at Goldman Sachs, 
-                witnessed the growing regulatory pressure for explainable AI, while Michael, as a Google AI researcher, 
-                saw the technical complexity of building these systems.
-              </p>
-              <p>
-                The turning point came during a regulatory audit where a major bank's lending decisions were questioned due to 
-                lack of transparency in their ML models. The institution faced potential fines and had to temporarily halt 
-                their AI-driven lending program—costing millions in lost opportunities and compliance resources.
-              </p>
-              <p>
-                "We realized that every financial institution would face this same challenge," says Dr. Martinez. 
-                "But not every institution has the resources to build world-class explainable AI teams. That's when we 
-                decided to democratize AI transparency through our Explainability-as-a-Service platform."
-              </p>
-              <p>
-                Today, ExplainScore serves over 50 financial institutions worldwide, from community banks to global lenders, 
-                helping them make transparent, compliant, and auditable AI-driven decisions.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="max-w-4xl mx-auto px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Our Story
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Born from firsthand experience with the challenges of AI transparency in financial services.
+      </p>
+    </div>
+
+    <div className="bg-gray-50 rounded-3xl p-12">
+      <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+        <p>
+          In 2024, news reports began highlighting a recurring issue: Indian NBFCs were being fined or restricted by the Reserve Bank of India for non-compliance related to digital lending. In March, four NBFCs were collectively fined ₹76.6 lakh. In October, Navi Finserv was barred from disbursing loans through its digital lending partners. The reason? <strong>Lack of transparency in credit decision-making.</strong>
+        </p>
+        <p>
+          While many lenders had adopted machine learning models to automate approvals and rejections, they had no reliable way to explain <em>why</em> those decisions were made — either to borrowers or regulators. The models worked, but the <strong>logic behind the outcomes was opaque</strong>.
+        </p>
+        <p>
+          Around the same time, Our Founder came across these cases while researching responsible AI applications in finance. The gap was clear: <em>Lenders didn’t need new scoring models they needed a reliable way to explain the ones they already had.</em>
+        </p>
+        <p>
+          This led to the creation of <strong>ExplainScore</strong> a platform that doesn’t build or replace credit models, but simply helps make their decisions <strong>transparent, explainable, and regulator-ready</strong>.
+        </p>
+
+        <h3 className="text-2xl font-semibold text-gray-800 mt-8">What Sets Us Apart</h3>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>We work with existing models integrating explainability directly into current workflows.</li>
+          <li>We provide a clean, simple <strong>dashboard</strong> that shows both model predictions and plain-language explanations.</li>
+          <li>We help NBFCs and fintechs stay compliant with RBI norms, while improving internal trust across credit, risk, and compliance teams.</li>
+          <li>We’re focused specifically on <strong>India’s small-to-mid-sized lenders</strong> a segment that is growing fast but often lacks in-house AI governance tools.</li>
+        </ul>
+
+        <h3 className="text-2xl font-semibold text-gray-800 mt-8">Why It Matters</h3>
+        <p>
+          Borrowers deserve to know why their loan was denied.<br />
+          Lenders need to prove their decisions are fair and consistent.<br />
+          Regulators expect transparency not just accuracy.
+        </p>
+        <p><strong>ExplainScore</strong> exists to make that transparency easy, fast, and reliable for Indian lenders of all sizes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Stats Section */}
-      <section className="py-24 bg-gray-50">
+      {/* <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -175,10 +184,10 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Team Section */}
-      <section className="py-24">
+      {/* <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -205,7 +214,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-blue-600 to-purple-700">

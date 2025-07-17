@@ -61,8 +61,8 @@ export const siteConfig = {
   stats: [
     { value: '99.9%', label: 'Uptime SLA' },
     { value: '<50ms', label: 'Response Time' },
-    { value: '500M+', label: 'Decisions Explained' },
-    { value: '50+', label: 'Enterprise Clients' }
+    // { value: '500M+', label: 'Decisions Explained' },
+    // { value: '50+', label: 'Enterprise Clients' }
   ],
   testimonials: [
     {

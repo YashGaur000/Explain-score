@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Check, ArrowRight, Mail, Calendar } from 'lucide-react';
+import { Button } from '../components';
 
 export default function Pricing() {
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
   const plans = [
     {
       name: 'Free Trial',
@@ -19,24 +25,24 @@ export default function Pricing() {
       popular: false,
       cta: 'Start Free Trial'
     },
-    {
-      name: 'Standard',
-      price: '$2,500',
-      period: '/month',
-      description: 'For financial institutions ready to deploy transparent AI at scale',
-      features: [
-        'Up to 25,000 explanations/month',
-        'Advanced compliance reporting',
-        'Priority support',
-        'Full API access',
-        'Enhanced security',
-        'Custom model integration',
-        'Audit trail generation',
-        'Regulatory documentation'
-      ],
-      popular: true,
-      cta: 'Start Free Trial'
-    }
+    // {
+    //   name: 'Standard',
+    //   price: '$2,500',
+    //   period: '/month',
+    //   description: 'For financial institutions ready to deploy transparent AI at scale',
+    //   features: [
+    //     'Up to 25,000 explanations/month',
+    //     'Advanced compliance reporting',
+    //     'Priority support',
+    //     'Full API access',
+    //     'Enhanced security',
+    //     'Custom model integration',
+    //     'Audit trail generation',
+    //     'Regulatory documentation'
+    //   ],
+    //   popular: true,
+    //   cta: 'Start Free Trial'
+    // }
   ];
 
   const faqs = [
@@ -77,7 +83,7 @@ export default function Pricing() {
       {/* Pricing Cards */}
       <section className="pb-24">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          <div className="flex flex-wrap justify-center gap-8 mb-16">
             {plans.map((plan, index) => (
               <div
                 key={index}
@@ -137,17 +143,25 @@ export default function Pricing() {
               Contact our sales team to discuss a solution tailored to your lending workflow.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              {/* <a
                 href="mailto:explainscore@gmail.com?subject=Enterprise Plan Inquiry"
                 className="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 <Mail className="mr-2 h-5 w-5" />
                 Talk to Sales
-              </a>
-              <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold hover:border-gray-400 hover:bg-white transition-all duration-200 flex items-center justify-center">
+              </a> */}
+              <Button
+              href="/contact"
+              variant="secondary"
+              size="lg"
+              className="bg-white text-blue-600 hover:bg-gray-50"
+            >
+              Start free trial
+            </Button>
+              {/* <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold hover:border-gray-400 hover:bg-white transition-all duration-200 flex items-center justify-center">
                 <Calendar className="mr-2 h-5 w-5" />
                 Schedule Demo
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -189,15 +203,20 @@ export default function Pricing() {
             compliant AI systems. Start your free trial today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl">
-              Start Free Trial
-            </button>
-            <a
+            <Button
+              href="/contact"
+              variant="secondary"
+              size="lg"
+              className="bg-white text-blue-600 hover:bg-gray-50"
+            >
+              Start free trial
+            </Button>
+            {/* <a
               href="mailto:explainscore@gmail.com?subject=Demo Request"
               className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200"
             >
               Schedule Demo
-            </a>
+            </a> */}
           </div>
         </div>
       </section>

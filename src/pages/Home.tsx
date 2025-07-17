@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ArrowRight, Star, Play } from 'lucide-react';
 import AnimatedBackground from '../components/ui/AnimatedBackground';
 import GradientText from '../components/ui/GradientText';
@@ -7,6 +7,9 @@ import { siteConfig } from '../config/site';
 import { getIcon } from '../utils/icons';
 
 export default function Home() {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-white dark:bg-dark-900 transition-colors duration-300">
       {/* Hero Section */}
@@ -20,7 +23,7 @@ export default function Home() {
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto animate-slide-up">
               Enable compliant, auditable ML lending decisions with our Explainability-as-a-Service platform. 
-              No model building required—just transparent AI explanations.
+              No model building required just transparent AI explanations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-slide-up" style={{ animationDelay: '0.2s' }}>
               <Button
@@ -41,16 +44,23 @@ export default function Home() {
             </div>
             
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              {siteConfig.stats.map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                    {stat.value}
+            <div
+                className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto animate-slide-up"
+                style={{ animationDelay: '0.4s' }}
+              >
+                {siteConfig.stats.map((stat, index) => (
+                  <div
+                    key={index}
+                    className="flex-1 min-w-[120px] max-w-[180px] text-center group"
+                    style={{ flexBasis: '20%' }}
+                  >
+                    <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      {stat.value}
+                    </div>
+                    <div className="text-gray-600 dark:text-gray-400 text-sm">{stat.label}</div>
                   </div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
           </div>
         </div>
       </section>
@@ -88,7 +98,7 @@ export default function Home() {
       </section>
 
       {/* Social Proof */}
-      <section className="py-24 bg-white dark:bg-dark-900 transition-colors duration-300">
+      {/* <section className="py-24 bg-white dark:bg-dark-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
@@ -125,7 +135,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 dark:from-blue-700 dark:via-purple-700 dark:to-blue-900 relative overflow-hidden">
