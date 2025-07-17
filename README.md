@@ -96,24 +96,6 @@ All site content is managed through `src/config/site.ts`. This includes:
 npm run build
 ```
 
-## Email Integration
-
-The contact and demo forms are set up with EmailJS integration. To enable real email sending:
-
-1. Follow the detailed setup guide in `EMAIL_SETUP.md`
-2. Create a `.env` file in the project root
-3. Add your EmailJS credentials to the `.env` file:
-   ```env
-   VITE_EMAILJS_SERVICE_ID=your_service_id
-   VITE_EMAILJS_TEMPLATE_ID=your_template_id
-   VITE_EMAILJS_PUBLIC_KEY=your_public_key
-   VITE_CONTACT_EMAIL=your_contact_email@example.com
-   VITE_DEMO_EMAIL=your_demo_email@example.com
-   ```
-4. Restart your development server
-
-**Note**: The email service has been fixed and will now properly attempt to send emails when configured. If environment variables are missing, it will return an error instead of simulating success. Check the browser console for configuration status on app startup.
-
 ## Customization
 
 ### Colors and Styling
