@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../../config/site';
 
-import logoImg from '../../assets/explainscore.png'; // Make sure the logo is placed at src/assets/logo.png
+import logoImg from '../../assets/explainscore.svg'; // Make sure the logo is placed at src/assets/logo.png
 
 interface LogoProps {
   className?: string;
